@@ -21,7 +21,7 @@ function operate(num1,num2,op,opNew){
     }else if(op == '*'){
         result = mull(num1,num2)
     }else if(op == '/'){
-        result = div(num1,num2)
+        result = div(parseFloat(num1),parseFloat(num2))
     }
     document.getElementById('side').value = result
     digit1 = result
@@ -66,13 +66,7 @@ function btnClick(val){
         document.getElementById('dec').disabled = false
         if(operator1Clicked){
             newOp = val
-            if(dec){
                 operate(parseFloat(digit1),parseFloat(digit2),operator,newOp)
-
-            }else{
-                operate(parseInt(digit1),parseInt(digit2),operator,newOp)
-            }
-           
 
 
         }else{
@@ -103,6 +97,7 @@ function eql() {
 
 function clr(){
     document.getElementById('display').value =""
+    document.getElementById('dec').disabled = false
     operatorClicked = false
     digit1 = ""
     digit2 = ""
@@ -110,4 +105,5 @@ function clr(){
     operator = ""
     newOp = ""
     result = 0
+    dec = false
 }
